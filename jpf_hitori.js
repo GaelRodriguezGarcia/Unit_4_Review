@@ -47,15 +47,47 @@
         
     */
 
-    var allCells
+    var allCells;
+    window.onload = startUp;
 
-    startUp() {
-        .selectElecmend
+    function startUp() {
+        //displ
+        document.getElementById("puzzleTitle").innerHTML = "Puzzle 1";
+
+        document.getElementById("puzzle").innerHTML = drawHitori("hitori1Numbers, hitori1Blocks, hitori1Rating");
+
+        var puzzleButtons = document.getElementsByClassName("puzzles");
+
+        for(var i = 0; i < puzzleButtons.length; i++){
+            puzzleButtons[i].onclick = switchPuzzle;
+        }
+        
+        setupPuzzle();
+
+        function switchPuzzle(e){
+            puzzleID = event.target.id;
+
+            document.getElementById("puzzleTitle").innerHTML = event.target.value;
+
+            switch(puzzleID){
+                case "puzzle1":
+                document.getElementById("puzzle").innerHTML = drawHitori(puzzle1);
+                break;
+                case "puzzle2":
+                document.getElementById("puzzle").innerHTML = drawHitori(puzzle2);
+                break;
+                case "puzzle3":
+                document.getElementById("puzzle").innerHTML = drawHitori(puzzle3);
+                break;
+
+                function setupPuzzle(){
+                    
+                }
+
+        }
+
+
     }
-
-
-
-
 
 
 
